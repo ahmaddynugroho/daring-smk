@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 html,
 body {
@@ -75,3 +75,23 @@ main code {
   font-size: 16px;
   background: #e6e2ff;
 }
+
+.rounded-border {
+  border-style: solid;
+  border-color: #46444c;
+  border-radius: 1rem;
+  border-width: 0.1rem;
+  padding: 2rem;
+}
+
+.rounded-border > p {
+  margin-bottom: 0;
+}
+
+.p-password {
+  margin-top: 1rem;
+}
+
+input {
+  border-radius: 0.5rem;
+} */
