@@ -1,7 +1,9 @@
 # Cara setup
 
-`npm i`
-`node ace migration:run`
+```bash
+npm i
+node ace migration:run
+```
 
 # Local dev server
 
