@@ -20,10 +20,18 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+Route.post('/', 'UsersController.login')
+Route.get('/', 'UsersController.isLoggedIn')
+
+Route.post('/register', 'UsersController.register')
+Route.get('/register', async ({ view }) => {
+  return view.render('register')
 })
 
-Route.post('/', async ({ view }) => {
-  return view.render('awokawok')
-})
+Route.post('/dashboard', async ({ auth, response }) => {
+  await auth.use('web').logout()
+  response.redirect('/')
+}).middleware('auth')
+Route.get('/dashboard', async ({ view }) => {
+  return view.render('dashboard')
+}).middleware('auth')
