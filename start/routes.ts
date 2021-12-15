@@ -23,14 +23,16 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.post('/', 'UsersController.login')
 Route.get('/', 'UsersController.pageLogin')
 
-Route.post('/register', 'UsersController.register').middleware('auth')
-Route.get('/register', 'UsersController.pageRegister').middleware('auth')
+Route.group(() => {
+  Route.post('/register', 'UsersController.register')
+  Route.get('/register', 'UsersController.pageRegister')
 
-Route.post('/admin', 'UsersController.logout').middleware('auth')
-Route.get('/admin', 'UsersController.pageAdminGuruSiswa').middleware('auth')
+  Route.post('/admin', 'UsersController.logout')
+  Route.get('/admin', 'UsersController.pageAdminGuruSiswa')
 
-Route.post('/guru', 'UsersController.logout').middleware('auth')
-Route.get('/guru', 'UsersController.pageAdminGuruSiswa').middleware('auth')
+  Route.post('/guru', 'UsersController.logout')
+  Route.get('/guru', 'UsersController.pageAdminGuruSiswa')
 
-Route.post('/siswa', 'UsersController.logout').middleware('auth')
-Route.get('/siswa', 'UsersController.pageAdminGuruSiswa').middleware('auth')
+  Route.post('/siswa', 'UsersController.logout')
+  Route.get('/siswa', 'UsersController.pageAdminGuruSiswa')
+}).middleware('auth')
