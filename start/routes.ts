@@ -21,15 +21,16 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/', 'UsersController.login')
-Route.get('/', 'UsersController.isLoggedIn')
+Route.get('/', 'UsersController.pageLogin')
 
-Route.post('/register', 'UsersController.register')
-Route.get('/register', 'UsersController.registerPage')
+Route.post('/register', 'UsersController.register').middleware('auth')
+Route.get('/register', 'UsersController.pageRegister').middleware('auth')
 
-Route.post('/dashboard', async ({ auth, response }) => {
-  await auth.use('web').logout()
-  response.redirect('/')
-}).middleware('auth')
-Route.get('/dashboard', async ({ view }) => {
-  return view.render('dashboard')
-}).middleware('auth')
+Route.post('/admin', 'UsersController.logout').middleware('auth')
+Route.get('/admin', 'UsersController.pageAdminGuruSiswa').middleware('auth')
+
+Route.post('/guru', 'UsersController.logout').middleware('auth')
+Route.get('/guru', 'UsersController.pageAdminGuruSiswa').middleware('auth')
+
+Route.post('/siswa', 'UsersController.logout').middleware('auth')
+Route.get('/siswa', 'UsersController.pageAdminGuruSiswa').middleware('auth')
