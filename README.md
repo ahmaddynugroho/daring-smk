@@ -3,6 +3,7 @@
 ```bash
 npm i
 node ace migration:run
+node ace db:seed
 ```
 
 # Local dev server
