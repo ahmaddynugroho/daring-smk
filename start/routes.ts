@@ -24,9 +24,7 @@ Route.post('/', 'UsersController.login')
 Route.get('/', 'UsersController.isLoggedIn')
 
 Route.post('/register', 'UsersController.register')
-Route.get('/register', async ({ view }) => {
-  return view.render('register')
-})
+Route.get('/register', 'UsersController.registerPage')
 
 Route.post('/dashboard', async ({ auth, response }) => {
   await auth.use('web').logout()
