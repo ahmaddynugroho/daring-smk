@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +8,8 @@
     @entryPointStyles('app')
     @entryPointScripts('app')
   </head>
-  <body class="flex items-center justify-center h-full text-gray-500 bg-gray-100">
-    <div class="w-full max-w-md p-8 bg-white rounded-md shadow-md">
+  <body class="text-gray-500 bg-gray-100">
+    <div class="container w-full max-w-md p-8 mx-auto mt-8 bg-white rounded-md shadow-md">
       <form action="/register" method="POST">
         <label for="full_name" class="block mt-4 mb-1">Full Name</label>
         <input
@@ -40,17 +40,24 @@
           class="block w-full px-2 py-1 border border-gray-300 rounded"
         />
         <label for="user_type" class="block mt-4 mb-1">User Type</label>
-        <select name="user_type" id="user_type" class="block w-full px-2 py-1 border border-gray-300 rounded" >
+        <select
+          name="user_type"
+          id="user_type"
+          class="block w-full px-2 py-1 border border-gray-300 rounded"
+        >
           <option value="siswa">Siswa</option>
-          <option value="siswa">Guru</option>
+          <option value="guru">Guru</option>
           <option value="admin">Admin</option>
         </select>
         <div class="flex items-center mt-4">
           <div class="flex-auto"></div>
-          <input type="submit" value="Register" class="px-4 py-2 text-gray-100 bg-gray-700 rounded" />
+          <input
+            type="submit"
+            value="Register"
+            class="px-4 py-2 text-gray-100 bg-gray-700 rounded"
+          />
         </div>
       </form>
     </div>
   </body>
 </html>
-

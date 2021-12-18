@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +8,24 @@
     @entryPointStyles('app')
     @entryPointScripts('app')
   </head>
-  <body class="flex flex-col items-center justify-center h-full py-2 text-gray-500 bg-gray-100">
-    <div class="w-full max-w-md p-8 my-2 bg-white rounded-md shadow-md">index siswa</div>
-    <form action="/siswa" method="post">
-      <button type="submit" class="px-2 py-1 text-gray-100 bg-gray-800 rounded">logout</button>
-    </form>
+  <body class="text-gray-500 bg-gray-100">
+    <div class="container w-full max-w-md p-8 mx-auto mt-8 bg-white rounded-md shadow-md">
+      <form action="/register" method="get">
+        <button type="submit" class="w-full px-2 py-1 mb-2 text-gray-100 bg-gray-700 rounded">
+          Add User
+        </button>
+      </form>
+      <form action="/siswa" method="post" class="flex items-center justify-end mt-2">
+        <span class="capitalize">[{{ auth.user.user_type }}]</span>
+        <span class="ml-1 capitalize">{{
+          auth.user.full_name.length > 18
+            ? auth.user.full_name.substring(0, 18) + '...'
+            : auth.user.full_name
+        }}</span>
+        <button type="submit" class="px-2 py-1 ml-4 text-gray-100 bg-gray-600 rounded">
+          logout
+        </button>
+      </form>
+    </div>
   </body>
 </html>
