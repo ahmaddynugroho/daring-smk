@@ -1,6 +1,8 @@
-import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, beforeSave, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from 'luxon'
+
+import Class from './Class'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -33,4 +35,7 @@ export default class User extends BaseModel {
       user.password = await Hash.make(user.password)
     }
   }
+
+  @manyToMany(() => Class)
+  public classes: ManyToMany<typeof Class>
 }
